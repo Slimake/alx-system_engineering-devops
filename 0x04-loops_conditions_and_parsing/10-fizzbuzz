@@ -2,7 +2,7 @@
 # A bash script that displays numbers from 1 to 100
 
 n=100
-for ((i = 1; i < n; i++)); do
+for ((i = 1; i <= n; i++)); do
     if ((i % 3 == 0 && i % 5 == 0))
     then
         echo "FizzBuzz"
