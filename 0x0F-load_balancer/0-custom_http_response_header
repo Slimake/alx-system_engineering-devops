@@ -2,7 +2,7 @@
 # A bash script that install nginx web server
 
 ADD301_REDIRECT="\\\tlocation /redirect_me {\n\t\t return 301 https://www.youtube.com/watch?v=QH2-TGUlwu4;\n\t}\n"
-ADD_RESPONSE_HEADER="\\\tadd_header X-Served-By $hostname;"
+ADD_RESPONSE_HEADER="\\\tadd_header X-Served-By $HOSTNAME;"
 
 # Update package repository
 sudo apt update
