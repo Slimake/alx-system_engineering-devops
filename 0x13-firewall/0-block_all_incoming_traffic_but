@@ -1,6 +1,5 @@
 #!/usr/bin/env bash
-# Install ufw, enable support for IPv6, 
-# allow tcp ports 22(SSH), 443(HTTPS), 80(HTTP) and start ufw
+# Install ufw, enable support for IPv6, allow tcp ports 22, 443, 80
 
 # Install ufw, support IPv6
 sudo apt-get -y install ufw
