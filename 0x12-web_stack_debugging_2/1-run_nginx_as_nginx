@@ -13,7 +13,8 @@ sudo chown -R nginx:nginx /var/lib/nginx/
 sudo sed -i "s/www-data/nginx/" /etc/nginx/nginx.conf
 
 # Replace port 80 with 8080
-sudo sed -i "s/80/8080/" /etc/nginx/sites-enabled/default
+sudo sed -i "s/80 default_server/8080 default_server/" /etc/nginx/sites-enabled/default
 
 # Restart nginx
+pkill apache2
 sudo service nginx restart
