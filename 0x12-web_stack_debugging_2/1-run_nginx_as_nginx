@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+# A script that changes nginx user and
+# nginx must be listening on all active IPs on port 8080
+
+# Add new user nginx
+sudo adduser nginx
+
+# Grant the necessary permissions to user nginx for the Nginx directories
+sudo chown -R nginx:nginx /var/log/nginx/
+sudo chown -R nginx:nginx /var/lib/nginx/
+
+# Replace user www-data with nginx
+sudo sed -i "s/www-data/nginx/" /etc/nginx/nginx.conf
+
+# Replace port 80 with 8080
+sudo sed -i "s/80/8080/" /etc/nginx/sites-enabled/default
+
+# Restart nginx
+sudo service nginx restart
