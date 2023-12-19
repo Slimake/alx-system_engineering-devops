@@ -3,7 +3,7 @@
 # nginx must be listening on all active IPs on port 8080
 
 # Add new user nginx
-sudo adduser nginx
+sudo adduser --disabled-password --gecos "" nginx
 
 # Grant the necessary permissions to user nginx for the Nginx directories
 sudo chown -R nginx:nginx /var/log/nginx/
