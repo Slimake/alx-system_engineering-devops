@@ -2,9 +2,8 @@
 # A script that changes nginx user and
 # nginx must be listening on all active IPs on port 8080
 
-
 # Grant the necessary permissions to user nginx for the Nginx directories
-sudo chown 700 /etc/nginx/nginx.conf
+sudo chmod 700 /etc/nginx/nginx.conf
 sudo chown nginx:nginx /etc/nginx/nginx.conf
 
 # Replace user www-data with nginx
