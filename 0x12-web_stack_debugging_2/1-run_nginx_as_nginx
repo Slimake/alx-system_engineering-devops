@@ -14,4 +14,4 @@ sudo sed -i "s/80 default_server/8080 default_server/" /etc/nginx/sites-enabled/
 
 # Restart nginx
 pkill apache2
-sudo service nginx restart
+sudo -u nginx service nginx restart
