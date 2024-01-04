@@ -15,7 +15,8 @@ if __name__ == '__main__':
             break
 
     todos = requests.get('https://jsonplaceholder.typicode.com/todos')
-    with open('2.csv', 'w', newline='') as file:
+    filename = "{}.csv".format(argv[1])
+    with open(filename, 'w', newline='') as file:
         writer = csv.writer(file, quoting=csv.QUOTE_ALL)
 
         for todo in todos.json():
