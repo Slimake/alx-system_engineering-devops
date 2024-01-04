@@ -1,13 +1,11 @@
 #!/usr/bin/python3
 """
-0-gather_data_from_an_API Module
-
 A Python script, using REST API, for a given employee ID,
 returns information about his/her TODO list progress.
 """
 
-from sys import argv
 import requests
+from sys import argv
 
 if __name__ == '__main__':
     EMPLOYEE_NAME = ''
@@ -28,7 +26,8 @@ if __name__ == '__main__':
                 NUMBER_OF_DONE_TASKS += 1
                 TASK_TITLE.append(todo.get('title'))
             TOTAL_NUMBER_OF_TASKS += 1
-print('Employee {} is done with tasks({}/{})'
-      .format(EMPLOYEE_NAME, NUMBER_OF_DONE_TASKS, TOTAL_NUMBER_OF_TASKS))
-for title in TASK_TITLE:
-    print('\t {}'.format(title))
+    print('Employee {} is done with tasks({}/{})'
+          .format(EMPLOYEE_NAME, NUMBER_OF_DONE_TASKS, TOTAL_NUMBER_OF_TASKS))
+
+    for title in TASK_TITLE:
+        print('\t {}'.format(title))
