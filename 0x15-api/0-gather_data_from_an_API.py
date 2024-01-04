@@ -8,7 +8,6 @@ import requests
 from sys import argv
 
 if __name__ == '__main__':
-    EMPLOYEE_NAME = ''
     NUMBER_OF_DONE_TASKS = 0
     TOTAL_NUMBER_OF_TASKS = 0
     TASK_TITLE = []
@@ -17,7 +16,7 @@ if __name__ == '__main__':
     for user in users.json():
         if user.get('id') == int(argv[1]):
             EMPLOYEE_NAME = user.get('name')
-        break
+            break
 
     todos = requests.get('https://jsonplaceholder.typicode.com/todos')
     for todo in todos.json():
