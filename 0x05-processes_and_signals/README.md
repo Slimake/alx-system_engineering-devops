@@ -1,4 +1,3 @@
-
 # Bash - Processes and signals
 In this project, you will learn about what PID(process identification) is, what a process is, how to find a process’ PID, how kill a process, what is a signal, and what are the 2 signals that cannot be ignored.
 
