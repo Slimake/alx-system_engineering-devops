@@ -1,0 +1,34 @@
+#!/usr/bin/env bash
+# Manages "manage_my_process" bash script
+
+if [[ "$1" == "start" ]]
+then
+    # start manage_my_process
+    # create my_process.pid and echo pid into my_process.pid
+    # echo manage_my_process started.
+    echo "manage_my_process started"
+    sudo touch /var/run/my_process.pid &
+    echo "$!" | sudo tee /var/run/my_process.pid 1> /dev/null
+    ./manage_my_process
+elif [[ "$1" == "stop" ]]
+then
+    # stop manage_my_process, remove my_process.pid and echo text.
+    echo "manage_my_process stopped"
+    sudo rm /var/run/my_process.pid
+    pkill -f "manage_my_process"
+
+elif [[ "$1" == "restart" ]]
+then
+    # stop manage_my_process, remove my_process.pid and echo text.
+    # start manage_my_process
+    # create my_process.pid and echo pid into my_process.pid
+    # echo manage_my_process restarted.
+    echo "manage_my_process restarted"
+    sudo rm /var/run/my_process.pid
+    pkill -INT -f "manage_my_process"
+    sudo touch /var/run/my_process.pid &
+    echo "$!" | sudo tee /var/run/my_process.pid 1> /dev/null
+    ./manage_my_process
+else
+    echo "Usage: manage_my_process {start|stop|restart}"
+fi
