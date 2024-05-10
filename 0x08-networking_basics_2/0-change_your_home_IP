@@ -5,6 +5,5 @@
 #+ facebook.com resolves to 8.8.8.8
 
 sudo cp /etc/hosts ~/hosts.new
-sudo sed -i '/localhost/s/^[0-9].*$/127.0.0.2\tlocalhost/' ~/hosts.new
-sudo sed -i '/facebook.com/s/^[0-9].*$/8.8.8.8\tfacebook.com/' ~/hosts.new
+sed -i -e '/localhost/s/^[0-9].*$/127.0.0.2\tlocalhost/' -e '/facebook.com/s/^[0-9].*$/8.8.8.8\tfacebook.com/' ~/hosts.new
 sudo cp -f ~/hosts.new /etc/hosts
