@@ -7,7 +7,7 @@ Configuration Management also called server configuration management refers to t
 
 ### Environment
 * OS: Ubuntu 20.04 LTS
-* Language: Ruby
+* Language: Puppet
 * Style Guide: [Puppet lint](http://puppet-lint.com/)
 
 ## Authors
