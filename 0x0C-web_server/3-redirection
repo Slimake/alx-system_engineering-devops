@@ -1,9 +1,10 @@
 #!/usr/bin/env bash
-# A bash script that redirects
+# A bash script that install nginx web server
 
-apt-get update
-apt-get -y install nginx
-echo "Hello World!" | tee /var/www/html/index.nginx-debian.html
-sed -i '53i \\n\tlocation /redirect_me {\n\t\treturn 301 https://www.youtube.com/watch?v=QH2-TGUlwu4;\n\t}' /etc/nginx/sites-available/default
-nginx -t
-service nginx reload
+ADD301_REDIRECT="\\\tlocation /redirect_me {\n\t\t return 301 https://www.youtube.com/watch?v=QH2-TGUlwu4;\n\t}\n"
+
+#sudo apt update
+#sudo apt-get -y install nginx
+echo "Hello World!" | sudo tee /var/www/html/index.nginx-debian.html
+sudo sed -i "40i $ADD301_REDIRECT" /etc/nginx/sites-available/default
+sudo service nginx restart
