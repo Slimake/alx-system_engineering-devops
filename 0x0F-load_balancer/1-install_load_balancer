@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+# Install Haproxy
+
+CONFIG="\\\nlisten appname\n\tbind 0.0.0.0:80\n\tmode http\n\tbalance roundrobin\n\toption httpclose\n\toption forwardfor\n\tserver 222538-web-01 34.202.164.88:80 check\n\tserver 222538-web-02 54.173.60.114:80 check\n"
+
+sudo apt-get update
+#sudo apt-get -y install nginx
+# Install and configure HAproxy
+sudo apt-get install --no-install-recommends software-properties-common
+sudo add-apt-repository ppa:vbernat/haproxy-2.0
+sudo apt-get install haproxy=2.0.\*
+
+# Make sure that HAproxy can be managed via an init script
+sudo sed -i "s/ENABLED=0/ENABLED=1/" /etc/default/haproxy
+sudo sed -i "\$a $CONFIG" /etc/haproxy/haproxy.cfg
+
+sudo service haproxy restart
