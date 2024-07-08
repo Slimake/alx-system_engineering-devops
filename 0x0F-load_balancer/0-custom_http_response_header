@@ -1,0 +1,20 @@
+#!/usr/bin/env bash
+# A bash script that install nginx web server
+
+ADD301_REDIRECT="\\\tlocation /redirect_me {\n\t\t return 301 https://www.youtube.com/watch?v=QH2-TGUlwu4;\n\t}\n"
+ADD_RESPONSE_HEADER="\\\tadd_header X-Served-By $HOSTNAME;"
+
+# Update package repository
+sudo apt update
+# Install nginx package
+sudo apt-get -y install nginx
+# Restart nginx server
+sudo service nginx restart
+# echo Hello World into file
+echo "Hello World!" | sudo tee /var/www/html/index.nginx-debian.html
+# Append /redirect_me location to file
+sudo sed -i "40i $ADD301_REDIRECT" /etc/nginx/sites-available/default
+# Append response header to file
+sudo sed -i "24i $ADD_RESPONSE_HEADER" /etc/nginx/sites-available/default
+# Restart nginx server
+sudo service nginx restart
