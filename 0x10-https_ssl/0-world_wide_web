@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+#  Configure your domain zone so that the 
+#+ subdomain www points to your load-balancer IP (lb-01)
+
+print_dom () {
+    A_RECORD="$(dig "$2"."$1" +noall +answer | awk '{print $4}')"
+    DEST="$(dig "$2"."$1" +noall +answer | awk '{print $5}')"
+    echo "The subdomain $2 is a $A_RECORD record and points to $DEST"
+}
+
+if [ -z "$2" ]
+then
+    for sub in "www" "lb-01" "web-01" "web-02"
+    do
+        print_dom "$1" $sub
+    done
+else
+    print_dom "$1" "$2"
+fi
