@@ -2,4 +2,9 @@
 # A Bash script that accepts one argument
 # Run the whoami command under the user passed as an argument
 
-sudo -u "$1" whoami
+if [[ "$#" -eq 1 ]]
+then
+    sudo -u "$1" whoami
+else
+    whoami
+fi
