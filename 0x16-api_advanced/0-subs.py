@@ -6,6 +6,10 @@ import requests
 
 
 def number_of_subscribers(subreddit):
+    """
+    return numbers of subscribers for a subreddit or
+    return 0 if subreddit given doesn't exist
+    """
     url = f"https://www.reddit.com/r/{subreddit}/about.json"
 
     headers = {"User-Agent": "api/v1"}
