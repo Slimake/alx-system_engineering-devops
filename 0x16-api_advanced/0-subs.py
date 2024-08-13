@@ -8,7 +8,9 @@ import requests
 def number_of_subscribers(subreddit):
     url = f"https://www.reddit.com/r/{subreddit}/about.json"
 
-    r = requests.get(url).json()
+    headers = {"User-Agent": "api/v1"}
+
+    r = requests.get(url, headers=headers).json()
     subscribers = r.get('data', {}).get('subscribers')
     if not subscribers:
         return 0
