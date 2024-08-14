@@ -17,7 +17,6 @@ def recurse(subreddit, hot_list=[], after=None):
     params = {}
     if after:
         params['after'] = after
-    print(params)
 
     # Make the request to Reddit's API
     headers = {"User-Agent": "api/v1"}
