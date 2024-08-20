@@ -4,7 +4,7 @@ Duration: 2 days
 Severity: low (phew "What a relief")  
 Impact: Our database servers went from "quietly writing data" to "trying to be the next Enimem" with a record-breaking number of writes per second. Spoiler alert: they didn't win any awards.
 
-![write](../assets/images/write.jpg)
+![write](assets/images/write.jpg)
 
 > ## Issue Summary
 > Duration of the outage:
